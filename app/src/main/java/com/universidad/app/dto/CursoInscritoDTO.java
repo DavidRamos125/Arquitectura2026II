@@ -10,6 +10,9 @@ public class CursoInscritoDTO {
     private BigDecimal nota;
 
     public CursoInscritoDTO() {
+        this.docente = new DocenteDTO();
+        this.estudiante = new EstudianteDTO();
+        this.materia = new MateriaDTO();
     }
 
     public CursoInscritoDTO(
