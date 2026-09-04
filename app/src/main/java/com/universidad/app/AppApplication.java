@@ -1,13 +1,13 @@
 package com.universidad.app;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+import com.universidad.app.vistaConsola.VistaConsola;
+
 public class AppApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(AppApplication.class, args);
+        VistaConsola vc = new VistaConsola();
+        vc.start();
     }
 
 }
