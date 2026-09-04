@@ -1,3 +1,4 @@
+/home/gon/JAristizabal/Arquitectura2026II/app/src/main/java/com/universidad/app/AppApplication.java
 /home/gon/JAristizabal/Arquitectura2026II/app/src/main/java/com/universidad/app/controlador_servicio/CursoInscritoControler.java
 /home/gon/JAristizabal/Arquitectura2026II/app/src/main/java/com/universidad/app/controlador_servicio/CursoInscritoServicio.java
 /home/gon/JAristizabal/Arquitectura2026II/app/src/main/java/com/universidad/app/controlador_servicio/DocenteControlador.java
@@ -19,3 +20,4 @@
 /home/gon/JAristizabal/Arquitectura2026II/app/src/main/java/com/universidad/app/persistencia/H2.java
 /home/gon/JAristizabal/Arquitectura2026II/app/src/main/java/com/universidad/app/persistencia/MySQL.java
 /home/gon/JAristizabal/Arquitectura2026II/app/src/main/java/com/universidad/app/persistencia/Persistencia.java
+/home/gon/JAristizabal/Arquitectura2026II/app/src/main/java/com/universidad/app/vistaConsola/VistaConsola.java

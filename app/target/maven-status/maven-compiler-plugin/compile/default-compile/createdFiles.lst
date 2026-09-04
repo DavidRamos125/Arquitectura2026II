@@ -1,5 +1,6 @@
 com/universidad/app/controlador_servicio/DocenteControlador.class
 com/universidad/app/controlador_servicio/CursoInscritoServicio.class
+com/universidad/app/AppApplication.class
 com/universidad/app/dominio_negocio/CursoInscrito.class
 com/universidad/app/dominio_negocio/Materia.class
 com/universidad/app/controlador_servicio/MateriaControlador.class
@@ -9,6 +10,7 @@ com/universidad/app/controlador_servicio/EstudianteControlador.class
 com/universidad/app/dominio_negocio/Estudiante.class
 com/universidad/app/dto/MateriaDTO.class
 com/universidad/app/persistencia/H2.class
+com/universidad/app/vistaConsola/VistaConsola.class
 com/universidad/app/controlador_servicio/DocenteServicio.class
 com/universidad/app/persistencia/Persistencia.class
 com/universidad/app/dto/EstudianteDTO.class
