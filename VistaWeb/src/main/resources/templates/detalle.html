@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    ```
+    <meta charset="UTF-8">
+
+    <title>Detalle del Curso</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        .seccion {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 500px;
+        }
+
+        .dato {
+            margin: 10px 0;
+        }
+
+        .label {
+            font-weight: bold;
+        }
+
+        a {
+            margin-right: 15px;
+        }
+
+    </style>
+    ```
+
+</head>
+
+<body>
+
+<h1>Detalle del Curso Inscrito</h1>
+
+<!-- =============================== -->
+
+<!-- ESTUDIANTE                       -->
+
+<!-- =============================== -->
+
+<div class="seccion">
+
+    ```
+    <h2>Estudiante</h2>
+
+    <div class="dato">
+
+    <span class="label">
+        Nombre:
+    </span>
+
+        <span th:text="${curso.estudiante.nombre}">
+        Juan Pérez
+    </span>
+
+    </div>
+
+
+    <div class="dato">
+
+    <span class="label">
+        Identificación:
+    </span>
+
+        <span th:text="${curso.estudiante.identificacion}">
+        123456
+    </span>
+
+    </div>
+    ```
+
+</div>
+
+<!-- =============================== -->
+
+<!-- DOCENTE                          -->
+
+<!-- =============================== -->
+
+<div class="seccion">
+
+    ```
+    <h2>Docente</h2>
+
+    <div class="dato">
+
+    <span class="label">
+        Nombre:
+    </span>
+
+        <span th:text="${curso.docente.nombre}">
+        Carlos Gómez
+    </span>
+
+    </div>
+
+
+    <div class="dato">
+
+    <span class="label">
+        Identificación:
+    </span>
+
+        <span th:text="${curso.docente.identificacion}">
+        987654
+    </span>
+
+    </div>
+    ```
+
+</div>
+
+<!-- =============================== -->
+
+<!-- MATERIA                          -->
+
+<!-- =============================== -->
+
+<div class="seccion">
+
+    ```
+    <h2>Materia</h2>
+
+    <div class="dato">
+
+    <span class="label">
+        Nombre:
+    </span>
+
+        <span th:text="${curso.materia.nombre}">
+        Programación
+    </span>
+
+    </div>
+
+
+    <div class="dato">
+
+    <span class="label">
+        Créditos:
+    </span>
+
+        <span th:text="${curso.materia.creditos}">
+        4
+    </span>
+
+    </div>
+    ```
+
+</div>
+
+<!-- =============================== -->
+
+<!-- NOTA                             -->
+
+<!-- =============================== -->
+
+<div class="seccion">
+
+    ```
+    <h2>Calificación</h2>
+
+    <div class="dato">
+
+    <span class="label">
+        Nota:
+    </span>
+
+        <span th:text="${curso.nota}">
+        4.5
+    </span>
+
+    </div>
+    ```
+
+</div>
+
+<a th:href="@{/cursos}">
+    Volver
+</a>
+
+<a th:href="@{/cursos/editar(
+     estudiante=${curso.estudiante.identificacion},
+     materia=${curso.materia.nombre}
+ )}">
+    Editar </a>
+
+</body>
+
+</html>

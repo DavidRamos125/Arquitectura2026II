@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+
+    ```
+    <title>Cursos Inscritos</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            margin-right: 10px;
+        }
+
+        .boton {
+            display: inline-block;
+            padding: 8px 12px;
+            border: 1px solid #333;
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+    ```
+
+</head>
+
+<body>
+
+<h1>Cursos Inscritos</h1>
+
+<a class="boton"
+   th:href="@{/cursos/nuevo}">
+    Nuevo Curso </a>
+
+<table>
+
+    ```
+    <thead>
+
+    <tr>
+        <th>Estudiante</th>
+        <th>Identificación</th>
+        <th>Materia</th>
+        <th>Créditos</th>
+        <th>Docente</th>
+        <th>Nota</th>
+        <th>Acciones</th>
+    </tr>
+
+    </thead>
+
+    <tbody>
+
+    <tr th:each="curso : ${cursos}">
+
+        <td th:text="${curso.estudiante.nombre}">
+            Juan Pérez
+        </td>
+
+        <td th:text="${curso.estudiante.identificacion}">
+            123456
+        </td>
+
+        <td th:text="${curso.materia.nombre}">
+            Programación
+        </td>
+
+        <td th:text="${curso.materia.creditos}">
+            4
+        </td>
+
+        <td th:text="${curso.docente.nombre}">
+            Carlos Gómez
+        </td>
+
+        <td th:text="${curso.nota}">
+            4.5
+        </td>
+
+        <td>
+
+            <a th:href="@{/cursos/detalle(
+            estudiante=${curso.estudiante.identificacion},
+            materia=${curso.materia.nombre}
+        )}">
+                Ver
+            </a>
+
+            <a th:href="@{/cursos/editar(
+            estudiante=${curso.estudiante.identificacion},
+            materia=${curso.materia.nombre}
+        )}">
+                Editar
+            </a>
+
+            <a th:href="@{/cursos/eliminar(
+            estudiante=${curso.estudiante.identificacion},
+            materia=${curso.materia.nombre}
+        )}"
+               onclick="return confirm('¿Está seguro de eliminar este curso?');">
+                Eliminar
+            </a>
+
+        </td>
+
+    </tr>
+
+    <tr th:if="${#lists.isEmpty(cursos)}">
+
+        <td colspan="7">
+            No hay cursos inscritos.
+        </td>
+
+    </tr>
+
+    </tbody>
+    ```
+
+</table>
+
+</body>
+</html>

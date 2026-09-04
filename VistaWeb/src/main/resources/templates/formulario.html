@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html lang="es"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    ```
+    <meta charset="UTF-8">
+
+    <title>
+        Curso Inscrito
+    </title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        form {
+            width: 500px;
+        }
+
+        h3 {
+            margin-top: 25px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 10px 20px;
+        }
+
+        .cancelar {
+            margin-left: 10px;
+        }
+
+    </style>
+    ```
+
+</head>
+
+<body>
+
+<h1
+        th:text="${estudianteOriginal != null
+              ? 'Editar Curso'
+              : 'Nuevo Curso'}">
+
+    ```
+    Nuevo Curso
+    ```
+
+</h1>
+
+<form th:object="${curso}"
+      th:action="${estudianteOriginal != null}
+                 ? @{/cursos/actualizar}
+                 : @{/cursos/guardar}"
+      method="post">
+
+    ```
+    <!-- ================================= -->
+    <!-- DATOS ORIGINALES PARA EDITAR      -->
+    <!-- ================================= -->
+
+    <input type="hidden"
+           name="estudianteOriginal"
+           th:value="${estudianteOriginal}">
+
+    <input type="hidden"
+           name="materiaOriginal"
+           th:value="${materiaOriginal}">
+
+
+    <!-- ================================= -->
+    <!-- DOCENTE                            -->
+    <!-- ================================= -->
+
+    <h3>Docente</h3>
+
+    <label>
+        Nombre
+
+        <input type="text"
+               th:field="*{docente.nombre}"
+               required>
+    </label>
+
+
+    <label>
+        Identificación
+
+        <input type="text"
+               th:field="*{docente.identificacion}"
+               required>
+    </label>
+
+
+    <!-- ================================= -->
+    <!-- ESTUDIANTE                         -->
+    <!-- ================================= -->
+
+    <h3>Estudiante</h3>
+
+    <label>
+        Nombre
+
+        <input type="text"
+               th:field="*{estudiante.nombre}"
+               required>
+    </label>
+
+
+    <label>
+        Identificación
+
+        <input type="text"
+               th:field="*{estudiante.identificacion}"
+               required>
+    </label>
+
+
+    <!-- ================================= -->
+    <!-- MATERIA                            -->
+    <!-- ================================= -->
+
+    <h3>Materia</h3>
+
+    <label>
+        Nombre
+
+        <input type="text"
+               th:field="*{materia.nombre}"
+               required>
+    </label>
+
+
+    <label>
+        Créditos
+
+        <input type="number"
+               th:field="*{materia.creditos}"
+               min="1"
+               required>
+    </label>
+
+
+    <!-- ================================= -->
+    <!-- NOTA                               -->
+    <!-- ================================= -->
+
+    <h3>Nota</h3>
+
+    <label>
+        Nota
+
+        <input type="number"
+               th:field="*{nota}"
+               min="0"
+               max="5"
+               step="0.01"
+               required>
+    </label>
+
+
+    <button type="submit">
+        Guardar
+    </button>
+
+
+    <a class="cancelar"
+       th:href="@{/cursos}">
+        Cancelar
+    </a>
+    ```
+
+</form>
+
+</body>
+
+</html>
