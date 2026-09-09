@@ -1,0 +1,2 @@
+docker-compose up -d
+java -jar "java -jar ".\tarea2VistaConsola-1.0-SNAPSHOT-jar-with-dependencies.jar""
