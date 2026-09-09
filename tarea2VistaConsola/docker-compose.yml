@@ -1,0 +1,18 @@
+services:
+  mysql:
+    image: mysql:9.7.2-oraclelinux9
+    container_name: tarea2-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: tarea2
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user123
+      MYSQL_ROOT_PASSWORD: root123
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./data.sql:/docker-entrypoint-initdb.d/00-data.sql:ro
+
+volumes:
+  mysql_data:
