@@ -2,6 +2,8 @@ package org.example.factory;
 
 import org.example.dominio.agricultura.CultivoLocal;
 import org.example.dominio.agricultura.Planta;
+import org.example.dominio.dto.GanadoDTO;
+import org.example.dominio.dto.PlantaDTO;
 import org.example.dominio.ganaderia.Ganado;
 import org.example.dominio.ganaderia.RebanoLocal;
 import org.example.dominio.persistencia.GanadoEntity;
@@ -52,6 +54,14 @@ public class Factory {
 
     public static Ganado getGanado(String nombre, double peso) {
         return new Ganado(nombre, peso);
+    }
+
+    public static PlantaDTO getPlantaDTO(String nombre, double crecimiento) {
+        return new PlantaDTO(nombre, crecimiento);
+    }
+
+    public static GanadoDTO getGanadoDTO(String nombre, double peso) {
+        return new GanadoDTO(nombre, peso);
     }
 
     public static PlantaEntity getPlantaEntity(Long id, String nombre, double crecimiento) {

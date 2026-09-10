@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.dominio.dto.GanadoDTO;
 import org.example.dominio.ganaderia.Ganado;
 import org.example.factory.Factory;
 import org.example.interfaces.IRebano;
@@ -33,8 +34,10 @@ public class RebanoService {
         rebano.sacrificar(buscar(nombre));
     }
 
-    public List<Ganado> listar() {
-        return rebano.getGanados();
+    public List<GanadoDTO> listar() {
+        return rebano.getGanados().stream()
+                .map(GanadoDTO::fromGanado)
+                .toList();
     }
 
     private Ganado buscar(String nombre) {

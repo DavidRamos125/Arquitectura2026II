@@ -1,7 +1,7 @@
 package org.example.vista;
 
-import org.example.dominio.agricultura.Planta;
-import org.example.dominio.ganaderia.Ganado;
+import org.example.dominio.dto.GanadoDTO;
+import org.example.dominio.dto.PlantaDTO;
 import org.example.factory.Factory;
 import org.example.service.CultivoService;
 import org.example.service.RebanoService;
@@ -85,26 +85,26 @@ public class Vista {
     }
 
     private void mostrarPlantas() {
-        List<Planta> plantas = cultivoService.listar();
+        List<PlantaDTO> plantas = cultivoService.listar();
         if (plantas.isEmpty()) {
             System.out.println("\nNo hay plantas.");
         } else {
             System.out.println("\n=== PLANTAS EXISTENTES ===");
             for (int i = 0; i < plantas.size(); i++) {
-                Planta p = plantas.get(i);
+                PlantaDTO p = plantas.get(i);
                 System.out.println("  " + (i + 1) + ". " + p.getNombre() + " (crecimiento: " + p.getCrecimiento() + ")");
             }
         }
     }
 
     private void mostrarGanado() {
-        List<Ganado> ganados = rebanoService.listar();
+        List<GanadoDTO> ganados = rebanoService.listar();
         if (ganados.isEmpty()) {
             System.out.println("\nNo hay ganado.");
         } else {
             System.out.println("\n=== GANADO EXISTENTE ===");
             for (int i = 0; i < ganados.size(); i++) {
-                Ganado g = ganados.get(i);
+                GanadoDTO g = ganados.get(i);
                 System.out.println("  " + (i + 1) + ". " + g.getNombre() + " (peso: " + g.getPeso() + ")");
             }
         }
@@ -125,7 +125,7 @@ public class Vista {
     }
 
     private void regar() {
-        Planta planta = pedirPlantaPorNumero();
+        PlantaDTO planta = pedirPlantaPorNumero();
         if (planta != null) {
             cultivoService.regar(planta.getNombre());
             System.out.println("Planta regada.");
@@ -133,7 +133,7 @@ public class Vista {
     }
 
     private void cosechar() {
-        Planta planta = pedirPlantaPorNumero();
+        PlantaDTO planta = pedirPlantaPorNumero();
         if (planta != null) {
             if (planta.getCrecimiento() == 100) {
                 cultivoService.cosechar(planta.getNombre());
@@ -160,7 +160,7 @@ public class Vista {
     }
 
     private void alimentar() {
-        Ganado ganado = pedirGanadoPorNumero();
+        GanadoDTO ganado = pedirGanadoPorNumero();
         if (ganado != null) {
             rebanoService.alimentar(ganado.getNombre());
             System.out.println("Ganado alimentado.");
@@ -168,7 +168,7 @@ public class Vista {
     }
 
     private void sacrificar() {
-        Ganado ganado = pedirGanadoPorNumero();
+        GanadoDTO ganado = pedirGanadoPorNumero();
         if (ganado != null) {
             if (ganado.getPeso() == 100) {
                 rebanoService.sacrificar(ganado.getNombre());
@@ -180,8 +180,8 @@ public class Vista {
         }
     }
 
-    private Planta pedirPlantaPorNumero() {
-        List<Planta> plantas = cultivoService.listar();
+    private PlantaDTO pedirPlantaPorNumero() {
+        List<PlantaDTO> plantas = cultivoService.listar();
         if (plantas.isEmpty()) {
             System.out.println("No hay plantas.");
             return null;
@@ -195,8 +195,8 @@ public class Vista {
         return plantas.get(num - 1);
     }
 
-    private Ganado pedirGanadoPorNumero() {
-        List<Ganado> ganados = rebanoService.listar();
+    private GanadoDTO pedirGanadoPorNumero() {
+        List<GanadoDTO> ganados = rebanoService.listar();
         if (ganados.isEmpty()) {
             System.out.println("No hay ganado.");
             return null;

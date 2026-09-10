@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.dominio.agricultura.Planta;
+import org.example.dominio.dto.PlantaDTO;
 import org.example.factory.Factory;
 import org.example.interfaces.ICultivo;
 
@@ -33,8 +34,10 @@ public class CultivoService {
         cultivo.cosechar(buscar(nombre));
     }
 
-    public List<Planta> listar() {
-        return cultivo.getPlantas();
+    public List<PlantaDTO> listar() {
+        return cultivo.getPlantas().stream()
+                .map(PlantaDTO::fromPlanta)
+                .toList();
     }
 
     private Planta buscar(String nombre) {
